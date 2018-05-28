@@ -50,15 +50,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       poll: config.dev.poll,
     },
     before (app) {
-      app.get('/api/lyric', function (req, res) {
-        var url = 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg'
-        axios.get(url, {
-          headers: {
-            referer: 'https://c.y.qq.com/',
-            host: 'c.y.qq.com'
-          },
-          params: req.query
-        }).then((response) => {
+      app.get('/api/index', function (req, res) {
+        var url = 'http://192.168.5.180:8089/toIndex'
+        axios.get(url).then((response) => {
           var ret = response.data
           if (typeof ret === 'string') {
             var reg = /^\w+\(({[^()]+})\)$/

@@ -1,10 +1,11 @@
 import { jsonp } from 'common/js/jsonp'
-import { options } from './config'
+import axios from 'axios'
 
 export function getIndex () {
-  const url = 'http://192.168.5.180:8089/toIndex'
+  const url = '/api/index'
 
-  const data = {}
-  return jsonp(url, data, options)
+  return axios.get(url).then((res) => {
+    return Promise.resolve(res.data)
+  })
 }
 
