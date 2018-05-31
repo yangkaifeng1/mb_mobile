@@ -1,23 +1,36 @@
 <template>
-  <div class="tabbar">
-    <mt-tabbar v-model="selected" fixed>
-      <mt-tab-item id="home_page">
-        <img slot="icon" src="../../components/tabbar/image/home_page.png">
-        首页
-      </mt-tab-item>
-      <mt-tab-item id="touzi">
-        <img slot="icon" src="../../components/tabbar/image/touzi.png">
-        投资
-      </mt-tab-item>
-      <mt-tab-item id="fuli">
-        <img slot="icon" src="../../components/tabbar/image/fuli.png">
-        福利
-      </mt-tab-item>
-      <mt-tab-item id="my">
-        <img slot="icon" src="../../components/tabbar/image/my.png">
-        我的
-      </mt-tab-item>
-    </mt-tabbar>
+  <div class="tabbar tc">
+    <router-link tag="div" class="tab-item" to="/index">
+      <div class="tab-icon">
+        <!--<img src="../../components/tabbar/image/home_page.png" alt="">-->
+        <i class="icon-home"></i>
+      </div>
+      <div class="tab-text">首页</div>
+    </router-link>
+
+    <router-link tag="div" class="tab-item" to="/target">
+      <div class="tab-icon">
+        <!--<img src="../../components/tabbar/image/touzi.png" alt="">-->
+        <i class="icon-target"></i>
+      </div>
+      <div class="tab-text">项目</div>
+    </router-link>
+
+    <router-link tag="div" class="tab-item" to="/welfare">
+      <div class="tab-icon">
+        <!--<img src="../../components/tabbar/image/fuli.png" alt="">-->
+        <i class="icon-welfare"></i>
+      </div>
+      <div class="tab-text">福利</div>
+    </router-link>
+
+    <router-link tag="div" class="tab-item" to="/mine">
+      <div class="tab-icon">
+        <!--<img src="../../components/tabbar/image/my.png" alt="">-->
+        <i class="icon-mine"></i>
+      </div>
+      <div class="tab-text">我的</div>
+    </router-link>
   </div>
 </template>
 
@@ -33,6 +46,35 @@
   }
 </script>
 
-<style class="less" scoped>
+<style lang="less" scoped>
+  @import "~common/style/variable.less";
+  @import "~common/style/mixin.less";
+
+  .tabbar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 47px;
+    display: flex;
+    background: @color-text-f;
+
+    .tab-item{
+      flex: 1;
+      padding: 7px 0 2px;
+      color: @color-text-ll;
+      .tab-icon{
+        i{
+          font-size: @font-size-large-l;
+        }
+      }
+      .tab-text{
+        font-size: @font-size-small;
+      }
+      &.router-link-active{
+        color: @color-theme;
+      }
+    }
+  }
 
 </style>

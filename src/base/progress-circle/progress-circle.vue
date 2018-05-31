@@ -41,7 +41,7 @@
 		position: relative;
 		circle{
 			stroke-width: 2px;
-	      	transform-origin: center;
+	    transform-origin: center;
 			&.progress-background{
 				transform: scale(0.9);
 				stroke: @color-background-d;

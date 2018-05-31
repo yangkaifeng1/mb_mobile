@@ -6,6 +6,17 @@
 	}
 }
 
+//.icon-font()
+
+//清浮动
+.clearfloat(){
+  zoom:1;
+  &:after{
+    display:block;clear:both;content:"";visibility:hidden;height:0;
+  }
+}
+
+
 // 不换行
 .no-wrap(){
 	text-overflow: ellipsis;

@@ -1,12 +1,12 @@
 <template>
-  <div class="blank10"></div>
+  <div class="blank25"></div>
 </template>
 
 <script></script>
 
 <style class="less" scoped>
-  .blank10{
-    height: 10px;
+  .blank25{
+    height: 25px;
     clear: both;
     overflow: hidden;
     visibility: visible;

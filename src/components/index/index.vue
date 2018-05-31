@@ -69,11 +69,11 @@
 </template>
 
 <script>
-  import { Swipe, SwipeItem, Button, Cell, Tabbar, TabItem } from 'mint-ui'
-  import progressCircle from 'base/progress-circle/progress-circle'
-  import blank10 from 'base/blank/blank10'
-  import blank5 from 'base/blank/blank5'
-  import tabbar from 'components/tabbar/tabbar'
+  import { Swipe, SwipeItem, Button, Cell } from 'mint-ui'
+  import ProgressCircle from 'base/progress-circle/progress-circle'
+  import Blank10 from 'base/blank/blank10'
+  import Blank5 from 'base/blank/blank5'
+  import Tabbar from 'components/tabbar/tabbar'
   import { getIndex } from 'api/index'
   import { ERR_OK } from 'api/config'
 
@@ -97,10 +97,10 @@
       },
     },
     components: {
-      progressCircle,
-      blank10,
-      blank5,
-      tabbar
+      ProgressCircle,
+      Blank10,
+      Blank5,
+      Tabbar
     }
   }
 </script>
