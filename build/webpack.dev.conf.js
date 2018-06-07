@@ -50,22 +50,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       poll: config.dev.poll,
     },
     before (app) {
-      app.get('/api/index', function (req, res) {
-        var url = 'http://192.168.5.180:8089/toIndex'
-        axios.get(url).then((response) => {
-          var ret = response.data
-          if (typeof ret === 'string') {
-            var reg = /^\w+\(({[^()]+})\)$/
-            var matches = ret.match(reg)
-            if (matches) {
-              ret = JSON.parse(matches[1])
-            }
-          }
-          res.json(ret)
-        }).catch((e) => {
-          console.log(e)
-        })
-      })
+      // app.get('/api/index', function (req, res) {
+      //   var url = 'http://192.168.5.180:8089/toIndex'
+      //   axios.get(url, {
+      //
+      //   }).then((response) => {
+      //     var ret = response.data
+      //     res.json(ret)
+      //   }).catch((e) => {
+      //     res.json(e)
+      //   })
+      // })
     }
   },
   plugins: [

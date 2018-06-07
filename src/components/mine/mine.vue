@@ -6,7 +6,9 @@
         <div class="unsign-con">
           <div class="title">满宝金服</div>
           <blank25></blank25>
-          <div class="sign-btn">登录/注册</div>
+          <router-link to="/login">
+            <div class="sign-btn">登录/注册</div>
+          </router-link>
         </div>
       </svg-banner>
       <blank35></blank35>
@@ -22,17 +24,18 @@
     <blank10></blank10>
     <div class="middle">
       <div class="item-box">
-
-          <div class="item">
-            <router-link to="/mine/investlog">
-              <div class="item-title">投资记录</div>
-              <div class="item-con">投资明细记录</div>
-            </router-link>
-          </div>
+        <div class="item">
+          <router-link to="/mine/investlog">
+            <div class="item-title">投资记录</div>
+            <div class="item-con">投资明细记录</div>
+          </router-link>
+        </div>
 
         <div class="item">
-          <div class="item-title">资金记录</div>
-          <div class="item-con">账户资金详情</div>
+          <router-link to="/mine/moneylog">
+            <div class="item-title">资金记录</div>
+            <div class="item-con">账户资金详情</div>
+          </router-link>
         </div>
       </div>
       <div class="item-box">
@@ -55,14 +58,18 @@
           <div class="item-con">佣金上不封顶</div>
         </div>
         <div class="item">
-          <div class="item-title">账户安全</div>
-          <div class="item-con">账户安全设置</div>
+          <router-link to="/mine/accountsafe">
+            <div class="item-title">账户安全</div>
+            <div class="item-con">账户安全设置</div>
+          </router-link>
         </div>
       </div>
       <div class="item-box">
         <div class="item">
-          <div class="item-title">帮助中心</div>
-          <div class="item-con">疑难解答</div>
+          <router-link to="/mine/question">
+            <div class="item-title">帮助中心</div>
+            <div class="item-con">疑难解答</div>
+          </router-link>
         </div>
         <div class="item">
           <div class="item-title">关于</div>
@@ -121,6 +128,7 @@
         .sign-btn{
           font-size: @font-size-large;
           border: 1px solid @color-text-f;
+          color: @color-text-f;
           line-height: 40px;
           border-radius: 20px;
           width: 140px;

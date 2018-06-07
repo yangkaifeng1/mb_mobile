@@ -1,35 +1,20 @@
 <template>
   <transition name="slider">
-    <div class="invest-log" @scroll.prevent>
-      <mt-header fixed title="投资记录">
+    <div class="money-log" @scroll.prevent>
+      <mt-header fixed title="资金记录">
         <router-link to="/mine" slot="left">
           <mt-button icon="back"></mt-button>
         </router-link>
       </mt-header>
 
         <div class="con">
-
-              <div class="top" ref="topbanner">
-                <div class="des">在投金额（元）</div>
-                <div class="num">1000.00</div>
-              </div>
-              <mt-navbar v-model="selected" ref="navbar">
-                <mt-tab-item id="1">待满标</mt-tab-item>
-                <mt-tab-item id="2">待回款</mt-tab-item>
-                <mt-tab-item id="3">已结束</mt-tab-item>
-              </mt-navbar>
-              <blank10></blank10>
-          <scroll class="con-box"
-                  :listenScroll="listenScroll"
-                  :probeType="probeType"
-                  @scroll="scroll"
-                  ref="list">
+          <scroll class="con-box">
             <div class="con-des">
               <mt-tab-container v-model="selected">
                 <mt-tab-container-item id="1" >
                   <ul>
-                    <li class="item" v-for="(item, index) in 20" @click="selectItem(index)">
-                      <invest-log-item></invest-log-item>
+                    <li class="item" v-for="(item, index) in 20">
+                      <money-log-item></money-log-item>
                     </li>
                     <div class="spinner">
                       <mt-spinner type="triple-bounce" color="#F29200"></mt-spinner>
@@ -52,35 +37,22 @@
   import { Header, Navbar, TabItem, TabContainer, TabContainerItem } from  'mint-ui'
   import Blank10 from 'base/blank/blank10'
   import Scroll from 'base/scroll/scroll'
-  import investLogItem from 'components/invest-log-item/invest-log-item'
+  import moneyLogItem from 'components/money-log-item/money-log-item'
 
   export default{
     data() {
       return {
-        selected: '1',
-        scrollY: 0
+        selected: '1'
       };
     },
     created () {
-      this.probeType = 3
-      this.listenScroll = true
-    },
-    mounted () {
-      this.topHeight = this.$refs.topbanner.clientHeight
     },
     methods: {
-      scroll (pos) {
-        this.scrollY = pos.y
-        this.$refs.topbanner.style.height = `${this.topHeight + this.scrollY}px`
-        if(this.scrollY <= -140) {
-          this.$refs.topbanner.style.height = "0px"
-        }
-      }
     },
     components: {
       Blank10,
       Scroll,
-      investLogItem
+      moneyLogItem
     }
   }
 </script>
@@ -89,7 +61,7 @@
   @import "~common/style/variable.less";
   @import "~common/style/mixin.less";
 
-  .invest-log{
+  .money-log{
     position:fixed;
     top:0;
     bottom: 0;
@@ -124,8 +96,7 @@
         overflow: hidden;
         height: 100%;
         margin-bottom: 57px;
-        .con-des{;
-          padding-bottom: 50px;
+        .con-des{
           .log-box{
             background: @color-text-f;
 

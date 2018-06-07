@@ -89,6 +89,7 @@
     methods: {
       _getIndex() {
         getIndex().then((res) => {
+          console.log(res)
           if(res.reCode === '0' +
             '') {
               console.log(res)
