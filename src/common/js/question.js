@@ -304,7 +304,9 @@ export const questions = {
         {
           'que':"7. 充值支持哪些银行？限额多少？",
           'con': [
-            {}
+            {
+              'bank': true
+            }
           ]
         }
       ]

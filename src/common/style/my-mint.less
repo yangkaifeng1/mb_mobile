@@ -1,4 +1,5 @@
 @import "./variable.less";
+@import "./mixin.less";
 
 .mint-header{
   height: 44px;
@@ -44,5 +45,15 @@
   position: absolute;
   left: 50%;
   margin-left: -19px;
+}
+
+.mint-cell{
+  &.nowrap{
+    .mint-cell-title {
+      width: 92%;
+      vertical-align: middle;
+      .no-wrap();
+    }
+  }
 }
 

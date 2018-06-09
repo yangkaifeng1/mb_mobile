@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from 'components/index/index'
 import targetDeatil from 'components/target-detail/target-detail'
+import targetInvest from 'components/target-invest/target-invest'
 import Target from 'components/target/target'
 import Welfare from 'components/welfare/welfare'
 import Mine from 'components/mine/mine'
@@ -12,14 +13,10 @@ import accountSafe from 'components/account-safe/account-safe'
 import Login from 'components/login/login'
 import Register from 'components/register/register'
 import Question from 'components/question/question'
-import Reglog from 'components/question-detail/reglog'
-import Realcheck from 'components/question-detail/realcheck'
-import Invest from 'components/question-detail/invest'
-import Score from 'components/question-detail/score'
-import Recharge from 'components/question-detail/recharge'
-import Carry from 'components/question-detail/carry'
-import Freecard from 'components/question-detail/freecard'
-import Packets from 'components/question-detail/packets'
+import questionDetail from 'components/question-detail/question-detail'
+import About from 'components/about/about'
+import companyDes from 'components/company-des/company-des'
+import Contact from 'components/contact/contact'
 
 Vue.use(Router)
 
@@ -39,7 +36,7 @@ export default new Router({
       children: [
         {
           path: ':id',
-          component: targetDeatil
+          component: targetInvest
         }
       ]
     },
@@ -72,36 +69,22 @@ export default new Router({
           component: Question,
           children: [
             {
-              path: 'reglog',
-              component: Reglog
+              path: ':url',
+              component: questionDetail
+            }
+          ]
+        },
+        {
+          path: 'about',
+          component: About,
+          children: [
+            {
+              path: 'companydes',
+              component: companyDes
             },
             {
-              path: 'realcheck',
-              component: Realcheck
-            },
-            {
-              path: 'invest',
-              component: Invest
-            },
-            {
-              path: 'score',
-              component: Score
-            },
-            {
-              path: 'recharge',
-              component: Recharge
-            },
-            {
-              path: 'carry',
-              component: Carry
-            },
-            {
-              path: 'freecard',
-              component: Freecard
-            },
-            {
-              path: 'packets',
-              component: Packets
+              path: 'contact',
+              component: Contact
             }
           ]
         }

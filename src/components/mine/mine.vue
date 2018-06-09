@@ -72,8 +72,10 @@
           </router-link>
         </div>
         <div class="item">
-          <div class="item-title">关于</div>
-          <div class="item-con">满宝家庭</div>
+          <router-link to="/mine/about">
+            <div class="item-title">关于</div>
+            <div class="item-con">满宝家庭</div>
+          </router-link>
         </div>
       </div>
     </div>
