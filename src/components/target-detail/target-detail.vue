@@ -3,9 +3,7 @@
 
     <div class="target-detail" @touchmove.prevent>
       <mt-header fixed title="众泰质押【2018031501】">
-        <router-link to="/target" slot="left">
-          <mt-button icon="back"></mt-button>
-        </router-link>
+        <mt-button icon="back" slot="left" @click="back"></mt-button>
       </mt-header>
       <div class="con">
           <mt-navbar v-model="selected">
@@ -251,6 +249,11 @@
         selected: '1',
         loading: true
       };
+    },
+    methods: {
+      back () {
+        return this.$router.go(-1);
+      }
     },
     components: {
       Blank10,

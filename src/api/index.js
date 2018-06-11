@@ -1,8 +1,10 @@
 import { jsonp } from 'common/js/jsonp'
 import axios from 'axios'
+import { token } from './config'
 
-axios.defaults.headers.common['token'] = 'e564092b0b86491a15281893583422a9c91e06ce74bab907bed73f75d6db20edf37d6f55052bf11ed3d282965b9cd'
+console.log(token)
 
+axios.defaults.headers.common['Authorization'] = token
 
 axios.defaults.headers.post['Content-type'] = 'application/json'
 

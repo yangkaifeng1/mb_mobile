@@ -5,7 +5,7 @@
       <div class="sign">签到领积分</div>
     </div>
     <mt-navbar>
-      <mt-tab-item id="1">积分明细</mt-tab-item>
+      <mt-tab-item id="1"><div @click="toLog">积分明细</div></mt-tab-item>
       <mt-tab-item id="2">兑换记录</mt-tab-item>
     </mt-navbar>
     <blank10></blank10>
@@ -46,6 +46,7 @@
     </div>
     <blank10></blank10>
     <tabbar></tabbar>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -55,6 +56,14 @@
   import Tabbar from 'components/tabbar/tabbar'
 
   export default{
+      methods: {
+        toLog () {
+            console.log(111)
+            this.$router.push({
+              path: '/welfare/scorelog'
+            })
+        }
+      },
       components: {
         Blank10,
         Tabbar

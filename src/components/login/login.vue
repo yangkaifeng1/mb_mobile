@@ -9,17 +9,23 @@
         <img src="../../components/login/image/login_top_bg.png" alt="">
       </div>
       <blank20></blank20>
-      <div class="input-box">
-        <phone-input></phone-input>
+      <form class="input-box" @submit.prevent="validateForm('form')" data-vv-scope="form">
+        <phone-input :msg="form"></phone-input>
         <login-pwd-input :log="log"></login-pwd-input>
         <div class="forget-pwd">
           忘记密码?
         </div>
         <blank20></blank20>
-        <mt-button size="large">立即登录</mt-button>
+        <!--<mt-button size="large" :type="submit" name="button">立即登录</mt-button>-->
+
+        <input v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('form.mobile') }"
+               name="mobile" type="text" placeholder="请输入手机号码" >
+        <span v-show="errors.has('form.mobile')" class="help is-danger">{{ errors.first('form.mobile') }}</span>
+
+        <button type="submit" name="button">立即登录</button>
         <blank20></blank20>
         <mt-button size="large" class="reg" @click="toReg">立即注册</mt-button>
-      </div>
+      </form>
     </div>
   </div>
   </transition>
@@ -47,6 +53,16 @@
         this.$router.push ({
           path: '/register'
         })
+      },
+      validateForm(scope) {
+        console.log(this.$validator)
+        this.$validator.validateAll(scope).then((result) => {
+            console.log(result)
+          if (result) {
+            // eslint-disable-next-line
+            alert('Form Submitted!');
+          }
+        });
       }
     },
     components: {

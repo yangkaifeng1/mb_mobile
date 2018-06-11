@@ -73,6 +73,13 @@
       refreshDelay: {
         type: Number,
         default: 100
+      },
+      /**
+       * 是否派发列表上滑的事件
+       */
+      pullUpLoad: {
+        type: Boolean,
+        default: false
       }
     },
     mounted() {
@@ -80,7 +87,7 @@
       this.$nextTick(() => {
         setTimeout(() => {
           this._initScroll()
-        }, 20)
+        }, 100)
       })
     },
     methods: {
@@ -103,13 +110,18 @@
           })
         }
 
+        if (this.pullUpLoad) {
+          this.scroll.on('pullingUp', () => {
+              console.log('11')
+            this.$emit('pullingUp')
+          })
+        }
+
         // 是否派发滚动到底部事件，用于上拉加载
         if (this.pullup) {
           this.scroll.on('scrollEnd', () => {
             // 滚动到底部
-            console.log('11')
             if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
-
               this.$emit('scrollToEnd')
             }
           })

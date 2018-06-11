@@ -17,6 +17,8 @@ import questionDetail from 'components/question-detail/question-detail'
 import About from 'components/about/about'
 import companyDes from 'components/company-des/company-des'
 import Contact from 'components/contact/contact'
+import scoreLog from 'components/score-log/score-log'
+
 
 Vue.use(Router)
 
@@ -36,13 +38,25 @@ export default new Router({
       children: [
         {
           path: ':id',
-          component: targetInvest
+          component: targetInvest,
+          children: [
+            {
+              path: 'targetdetail',
+              component: targetDeatil
+            }
+          ]
         }
       ]
     },
     {
       path: '/welfare',
-      component: Welfare
+      component: Welfare,
+      children: [
+        {
+          path: 'scorelog',
+          component: scoreLog
+        }
+      ]
     },
     {
       path: '/mine',

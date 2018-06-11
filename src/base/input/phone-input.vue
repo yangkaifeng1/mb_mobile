@@ -1,13 +1,19 @@
 <template>
   <div class="phone-input">
-    <input v-validate="'required|checknull|mobile'" :class="{'input': true, 'is-danger': errors.has('mobile') }"
+    <input v-validate="'required|checknull|mobile'" :class="{'input': true, 'is-danger': errors.has(`${msg}.mobile`) }"
            name="mobile" type="text" placeholder="请输入手机号码" @focus="scrollTop">
-    <span v-show="errors.has('mobile')" class="help is-danger">{{ errors.first('mobile') }}</span>
+    <span v-show="errors.has(`${msg}.mobile`)" class="help is-danger">{{ errors.first(`${msg}.mobile`) }}</span>
   </div>
 </template>
 
 <script>
   export default{
+    props: {
+      msg: {
+        type: String,
+        default: ''
+      },
+    },
     methods: {
       scrollTop () {
         setTimeout(function () {
