@@ -11,6 +11,4 @@ const appSecret = "2a9c91e06ce74bab907bed73f75d6db2"
 let timeStamp = new Date().getTime()
 let auth = appKey+timeStamp+appSecret
 let md5Auth = md5(auth)
-console.log(auth)
-console.log(md5Auth)
 export const token = auth + md5Auth

@@ -9,23 +9,28 @@
         <img src="../../components/login/image/login_top_bg.png" alt="">
       </div>
       <blank20></blank20>
-      <form class="input-box" @submit.prevent="validateForm('form')" data-vv-scope="form">
-        <phone-input :msg="form"></phone-input>
-        <login-pwd-input :log="log"></login-pwd-input>
-        <div class="forget-pwd">
-          忘记密码?
-        </div>
-        <blank20></blank20>
-        <!--<mt-button size="large" :type="submit" name="button">立即登录</mt-button>-->
+      <div  class="input-box">
+        <form @submit.prevent="validateForm">
+          <input v-validate="'required|checknull|mobile'" :class="{'input': true, 'is-danger': errors.has('mobile') }"
+                 name="mobile" type="text" placeholder="请输入手机号码">
+          <span v-show="errors.has('mobile')" class="help is-danger">{{ errors.first('mobile') }}</span>
 
-        <input v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('form.mobile') }"
-               name="mobile" type="text" placeholder="请输入手机号码" >
-        <span v-show="errors.has('form.mobile')" class="help is-danger">{{ errors.first('form.mobile') }}</span>
+          <input v-validate="'required|min: 6|max: 16'"
+                 :class="{'input': true, 'is-danger': errors.has('passWord') }" name="passWord" type="text"
+                 placeholder="请输入登录密码">
+          <span v-show="errors.has('passWord')" class="help is-danger">{{ errors.first('passWord') }}</span>
 
-        <button type="submit" name="button">立即登录</button>
-        <blank20></blank20>
+          <blank20></blank20>
+          <div class="forget-pwd">
+            忘记密码?
+          </div>
+          <blank20></blank20>
+          <!--<mt-button size="large" :type="submit" name="button">立即登录</mt-button>-->
+          <button type="submit" name="button">立即登录</button>
+          <blank20></blank20>
+        </form>
         <mt-button size="large" class="reg" @click="toReg">立即注册</mt-button>
-      </form>
+      </div>
     </div>
   </div>
   </transition>
@@ -33,10 +38,12 @@
 
 <script>
   import { Header,  Button } from 'mint-ui'
-  import phoneInput from 'base/input/phone-input'
   import loginPwdInput from 'base/input/login-pwd-input'
   import Blank20 from 'base/blank/blank20'
-
+  import { Login, getMsgCode } from 'api/index'
+  import { ERR_OK } from 'api/config'
+  import md5 from 'js-md5';
+  console.log(ERR_OK)
   export default{
     data () {
       return {
@@ -49,24 +56,31 @@
         return this.$router.go(-1);
       },
       toReg () {
-        console.log('11')
         this.$router.push ({
           path: '/register'
         })
       },
-      validateForm(scope) {
-        console.log(this.$validator)
-        this.$validator.validateAll(scope).then((result) => {
-            console.log(result)
+      validateForm() {
+        this.$validator.validateAll().then((result) => {
           if (result) {
-            // eslint-disable-next-line
-            alert('Form Submitted!');
+            let data = {}
+            let formData = this.$validator.fields.items
+            for (var key in formData) {
+              data[formData[key].name] = formData[key].value
+            }
+            let pwd = md5(data.passWord)
+            data.passWord = pwd
+            data = JSON.stringify(data)
+            Login(data).then((res) => {
+              if (res.reCode === "0") {
+                console.log(res)
+              }
+            })
           }
         });
       }
     },
     components: {
-      phoneInput,
       Blank20,
       loginPwdInput
     }
@@ -107,10 +121,12 @@
           font-size: @font-size-medium;
         }
         .reg{
+          padding: 0 30px;
           background: @color-text-f;
           color: @color-theme;
         }
       }
+
     }
   }
 

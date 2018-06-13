@@ -10,6 +10,10 @@ import 'common/js/validate'
 import 'mint-ui/lib/style.css'
 import './common/style/index.less'
 
+// import qs from 'qs'
+// /* 注入vue全局中，这样我们可以在组件内或者JS内通过使用this.$qs来使用qs库*/
+// Vue.use(qs)
+
 Vue.use(MintUI);
 
 Vue.config.productionTip = false
