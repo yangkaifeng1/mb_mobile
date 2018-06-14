@@ -6,6 +6,7 @@ import router from './router'
 import MintUI from 'mint-ui'
 import 'lib-flexible/flexible'
 import 'common/js/validate'
+import store from './store'
 
 import 'mint-ui/lib/style.css'
 import './common/style/index.less'
@@ -22,6 +23,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

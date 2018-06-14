@@ -1,8 +1,14 @@
 import { jsonp } from 'common/js/jsonp'
 import axios from 'axios'
-import { token } from './config'
 import qs from 'qs'
+import md5 from 'js-md5';
 
+const appKey = "e564092b0b86491a"
+const appSecret = "2a9c91e06ce74bab907bed73f75d6db2"
+let timeStamp = new Date().getTime()
+let auth = appKey+timeStamp+appSecret
+let md5Auth = md5(auth)
+let token = auth + md5Auth
 
 axios.defaults.headers.common['Authorization'] = token
 

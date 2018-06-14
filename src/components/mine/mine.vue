@@ -91,8 +91,14 @@
   import Blank25 from 'base/blank/blank25'
   import Blank35 from 'base/blank/blank35'
   import Blank10 from 'base/blank/blank10'
+  import { mapGetters } from 'vuex'
 
   export default {
+    computed: {
+      ...mapGetters([
+        'user'
+      ])
+    },
     components: {
       svgBanner,
       Tabbar,

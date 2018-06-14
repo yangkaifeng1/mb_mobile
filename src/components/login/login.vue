@@ -37,20 +37,22 @@
 </template>
 
 <script>
-  import { Header,  Button } from 'mint-ui'
+  import { Header,  Button, Toast } from 'mint-ui'
   import loginPwdInput from 'base/input/login-pwd-input'
   import Blank20 from 'base/blank/blank20'
   import { Login, getMsgCode } from 'api/index'
   import { ERR_OK } from 'api/config'
   import md5 from 'js-md5';
-  console.log(ERR_OK)
+  import { mapActions} from 'vuex'
+
   export default{
     data () {
       return {
         log: false
       }
     },
-    computed: {},
+    computed: {
+    },
     methods: {
       back () {
         return this.$router.go(-1);
@@ -71,14 +73,27 @@
             let pwd = md5(data.passWord)
             data.passWord = pwd
             data = JSON.stringify(data)
+            console.log(this.saveUserMsg)
+            let that = this
             Login(data).then((res) => {
               if (res.reCode === "0") {
-                console.log(res)
+                this.saveUserMsg(res.data.user)
+                this.$router.push({
+                  path: '/mine'
+                })
+              } else {
+                Toast({
+                  message: '登录错误，请重新登录！',
+                  duration: 2000
+                });
               }
             })
           }
         });
-      }
+      },
+      ...mapActions([
+        'saveUserMsg'
+      ])
     },
     components: {
       Blank20,

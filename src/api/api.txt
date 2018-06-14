@@ -1,0 +1,513 @@
+本地接口地址：http://192.168.5.180:8089/**
+外网接口地址：http://47.98.223.114:8081/appWeb/**
+
+0、	首页
+0、1获取首页
+接口请求地址：/toIndex
+数据请求类型：json
+请求参数：无
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+成功请求：success(true:成功；false：失败)
+		  返回数据：data（轮播图集合：bannerList
+						公告集合：noticeList
+						新手标的基本信息：newDeal
+						普通标的基本信息：commonDeal）
+一、用户相关模块
+1、1获取手机验证码
+接口请求地址：/getMsgCode
+数据请求类型：json
+请求参数：手机号：mobile
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+成功请求：success(true:成功；false：失败)
+	返回数据：data（手机号；验证码）
+1、2 用户注册接口
+接口请求地址：/userReg
+数据请求类型：json
+请求参数：手机号：mobile
+登录密码：passWord（MD5加密）
+App类型：appType(0：web，1：ios，2：android)
+登录的ip地址：loginIp
+渠道编号：appChannel（安卓专用渠道，web填写8888,IOS填写9999）
+邀请人手机号：referer（选填）
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+成功请求：success(true:成功；false：失败)
+
+
+1、3 用户登录接口
+接口请求地址：/userLogin
+数据请求类型：json
+请求参数：手机号：mobile
+登录密码：passWord（MD5加密）
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+用户id：userId
+成功请求：success(true:成功；false：失败)
+返回数据：data
+
+1、4 用户找回登陆密码接口
+接口请求地址：/findLoginPwd
+数据请求类型：json
+请求参数：手机号：mobile
+新登录密码：passWord（md5加密）
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+1、5 用户修改登陆密码接口
+接口请求地址：/resetLoginPwd
+数据请求类型：json
+请求参数：老密码：oldPassWord（md5加密）
+新密码：newPassWord（md5加密）
+	用户ID：userId
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+1、6 用户设置支付密码接口
+接口请求地址：/setPayPwd
+数据请求类型：json
+请求参数：支付密码：payPwd（md5加密）
+		用户ID：userId
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+1、7 用户修改支付密码接口
+接口请求地址：/resetPayPwd
+数据请求类型：json
+请求参数：原支付密码：oldPayPassWord（md5加密）
+	新支付密码：newPayPassWord（md5加密）
+	用户ID：userId
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+1、8校验姓名和身份证号（用于找回支付密码）
+接口请求地址：/CheckNameAndIdCard
+数据请求类型：json
+请求参数：身份证号：idno
+	真实姓名：realName
+	用户ID：userId
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+1、9用户找回支付密码接口
+接口请求地址：/findPayPwd
+数据请求类型：json
+请求参数：新支付密码：payPassWord
+	用户ID：userId
+身份证号：idno
+	真实姓名：realName
+
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+
+
+1、10用户实名认证接口
+接口请求地址：/realCheck
+数据请求类型：json
+请求参数：真实姓名：realName
+	身份证号：idno
+	银行id：bankId
+	银行卡号：bankCard
+	开户行：bankZone
+	银行预留手机：mobile
+	用户ID：userId
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+
+二、标的相关
+2.1标的列表
+
+接口请求地址：/dealList
+数据请求类型：json
+请求参数：页码：pageid
+	每页个数：rows
+	标的类型: proType(非必填，新手标：new_type;普通标：normal_type)
+	标的期限：proTerm(非必填，1月标：one_term;1-3月标：three_term;
+3-6月标：six_term;6月-：more_term)
+		  年化：yearRate(非必填，1-10：one_rate;10-12:two_rate;12-50:more_rate)
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回数据：data（标的列表：list1；
+			标的id：dealId
+			标的名字：name
+			是否新手标：isNew
+			年化利率：rate
+			借款时间：repayTime
+			总借款金额：borrowAmount
+			已投资比例：bili
+）
+2.2标的详情
+接口请求地址：/dealInfo
+数据请求类型：json
+请求参数：标的id：dealId
+	用户id：userId(非必填)
+数据返回类型：json
+返回参数：未登录时：
+返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回数据：data(简单标的对象：dealBean；)
+登录时：
+返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回数据：data（简单标的对象：dealBean；
+								标的id：dealId
+								标的名字：name
+								是否新手标：isNew
+								年化利率：rate
+								借款时间：repayTime
+								总借款金额：borrowAmount
+								已投资比例：bili
+用户基本对象：userBean；
+				可用余额：money
+可用优惠券个数：youhuiCount）
+2.3获取用户可用红包列表
+接口请求地址：/ecvList
+数据请求类型：json
+请求参数：用户id：userId
+	页码：pageid
+	每页个数：rows
+	使用状态：useStatus（0）
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回数据：data（红包列表：list1；
+							红包id：id
+							红包名字：memo
+							面值：value
+							限制金额使用：xzMoney
+							结束日期：endDate
+							限制投资天数使用：beiyong2）
+
+
+2.4获得用户可用加息券列表
+接口请求地址：/jiaxiList
+数据请求类型：json
+请求参数：用户id：userId
+	页码：pageid
+	每页个数：rows
+	使用状态：useStatus（0）
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回数据：data
+
+2.5投标准备页
+接口请求地址：/dealReady
+数据请求类型：json
+请求参数：标的id：dealId
+	用户id：userId
+	投资金额：investMoney
+	红包id：ecvId（未选择时传0）
+	加息券id：jiaxiId（未选择时传0）
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回数据：data（标的名称：dealName；
+标的编号：dealSn；
+年化利率：dealRate；
+借款时间：dealRepayTime；
+投资金额：investMoney；
+到期本息：totalMoney；
+红包id：ecvId;（未选择时为0）
+红包面值：ecvValue；（未选择时为0）
+加息券id：jiaxiId;（未选择时为0）
+加息券加的钱：jiaxiValue；（未选择时为0）
+）
+
+2.6投资成功
+接口请求地址：/dealSuccess
+数据请求类型：json
+请求参数：标的id：dealId
+	用户id：userId
+	交易密码：payPassword
+	投资金额：investMoney
+	红包id：ecvId（未选择时传0）
+	加息券id：jiaxiId（未选择时传0）
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回数据：data（标的名称：dealName；
+标的编号：dealSn；
+三、积分相关
+3.1用户积分列表
+接口请求地址：/scoreList
+数据请求类型：json
+请求参数：页码：pageid
+	每页个数：rows
+	用户id：userId
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回结果：data
+3.2用户签到
+接口请求地址：/userSigned
+数据请求类型：json
+请求参数：用户id：userId
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+
+
+
+
+
+
+
+四、账户中心
+4.1账户首页(登陆状态下)
+接口请求地址：/accountIndex
+数据请求类型：json
+请求参数：用户id：userId
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+请求结果：success
+返回数据：data
+{用户基本对象：user
+账户总资产：user.totalMoney
+累计回报：user. loadAerning
+可用红包总额：ecvSum
+可用加息券个数：jiaxiCount
+待回款：repayMoney
+}
+4.2用户投资记录
+接口请求地址：/dealLoads
+数据请求类型：json
+请求参数：用户id：userId
+	页码：pageid
+	每页个数：rows
+	标的状态：dealStatus(待满标：investing_target；待回款：backing_target；已结束：backed_target)
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回数据：data
+{标的名字：dealLoadBean.dealName；
+		  投资金额：money（状态未满标时显示投资金额）
+到期本息：sumMoney（状态非未满标时显示到期本息）；
+投资时间：createDate
+预期回款时间：shouldReturnTime
+回款时间：lastReturnTime
+标的状态：dealstatus（1，待满标；4，待回款；5，已回款）
+}
+4.3用户资金日志
+
+接口请求地址：/moneyLogs
+数据请求类型：json
+请求参数：用户id：userId
+	页码：pageid
+	每页个数：rows
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回数据：data（资金日志集合：list
+							钱：money；
+							时间：createTime.
+							当前可用余额：accountMoney；
+							操作类型：type（1充值；2投标；5回收本息；
+8提现；19流标返还；99红包奖励）；
+）
+
+4.4用户红包列表
+
+接口请求地址：/ecvList
+数据请求类型：json
+请求参数：用户id：userId
+	页码：pageid
+	每页个数：rows
+	使用状态：useStatus（非必填，默认0，未使用：0；已使用：1；已过期：2）
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回数据：data
+
+4.5用户加息券列表
+接口请求地址：/jiaxiList
+数据请求类型：json
+请求参数：用户id：userId
+	页码：pageid
+	每页个数：rows
+	使用状态：useStatus（非必填，默认0，未使用：0；已使用：1；已过期：2）
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回数据：data
+
+
+4.6邀请人列表
+接口请求地址：/myFriends
+数据请求类型：json
+请求参数：用户id：userId
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+		  返回数据：data（手机号为key，已赚的返利为value）
+
+
+4.7获取账户安全设置
+接口请求地址：/accountSecurity
+数据请求类型：json
+请求参数：用户id：userId
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+返回结果：data(是否实名：isRealCheck；
+是否设置交易密码：isPayPassword)
+
+
+
+
+
+五、充值提现
+5.1用户发起充值
+接口请求地址：/userRecharge
+数据请求类型：json
+请求参数：用户id：userId
+	交易密码：payPwd
+	充值金额：rechargeMoney
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+		  返回数据：data（充值订单号：noticeSn；
+						回调地址：backUrl）
+
+
+
+
+5.1用户发起提现
+接口请求地址：/userCarry
+数据请求类型：json
+请求参数：用户id：userId
+	交易密码：payPwd
+	充值金额：carryMoney
+数据返回类型：json
+返回参数：返回结果：reCode（0:成功，其他：错误）
+结果描述：reReason
+		 成功请求：success
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+用户基本信息对象：user
+id：id
+用户名：userName
+是否实名：idcardpassed
+真实姓名：realName
+手机：mobile
+积分：score
+可用余额：money
+冻结资金：lockMoney
+渠道编号：code
+推荐人手机号：referer
+风险测评结果：graduation
+支付密码：paypassword
+银行卡号：bankNumber
+银行id：bankid
+已赚利息：loadAerning
+以赚奖励：accountMoney
+提现总额：carryMoney
+充值总额：payMoney
+投资总额：investMoney
+投资次数：investCount
+在投金额：doingMoney
+
+标的基本对象：deal
+
+Id：id
+标的名字：name
+是否新手标：isNew
+借款总额：borrowAmount
+最低投标额度：minLoanMoney
+借款期限（天数）：repayTime
+还款类型：repayType（默认到期本息）
+年化利率：rate
+创建时间：createTime
+
+借款分类：dealCateMatch（默认 质押车贷标）
+借款用途：typeMatchRow（默认 短期周转）
+
+以投个数：buyCount
+以投标金额：loadMoney
+还了多少：repayMoney
+开始投标时间：startTime（时间戳 秒值）
+标的成功时间：successTime（时间戳 秒值）
+应该还款时间：lastRepayTime（时间戳 秒值）
+实际还款时间：nextRepayTime（时间戳 秒值）
+流标时间：badTime(时间戳 秒值)
+标的状态：dealStatus（0:待等材料；1：投标中；
+2：满标；3：流标；4：还款中；5：已还完）
+筹标期限：endDate
+
+还款方式：loantype（2：默认到期本息）
+
+最高投标额度：maxLoanMoney
+借款编号：dealSn
+开始投标日期：startDate （日期类型）
+流标日期：badDate(日期类型)
+抵押物照片：mortgageInfos
+合同照片：mortgageContract
+借款人姓名：varcharField01
+借款人身份证号：varcharField02
+复审时间：timestampField01
+初审时间：timestampField03
+
+投资记录基本对象信息 dealLoad
+
+Id:id
+标的id：dealId
+用户id:userId
+用户名字：userName
+投资金额：money
+创建时间：createTime（时间戳 秒值）
+流标时钱是否返还：isRepay
+创建日期：createDate（日期类型）
+使用红包的id：ecvId（没用时为0）
+红包金额：ecvMoney （没用时为0）
+预计汇款时间：learnId（时间戳 秒值）
+使用加息券id：interestrateId（不用时为0）
+加息券加的利息：interestrateMoney（没用时为0.00）、
+加息券加的利率：interestrateRate（没用时为0.00）
+标的名称：dealName
+借款期限:borrowTime
+借款利率：interestRate
+标的状态：同标的
+到期收益：expireMoney
+到期总额：sumMoney
+实际还款时间：lastReturnTime
+
+
+
+
+
+
+
+
