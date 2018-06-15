@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?aqrnd0');
-  src:  url('../fonts/icomoon.eot?aqrnd0#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?aqrnd0') format('truetype'),
-    url('../fonts/icomoon.woff?aqrnd0') format('woff'),
-    url('../fonts/icomoon.svg?aqrnd0#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?2dciq3');
+  src:  url('../fonts/icomoon.eot?2dciq3#iefix') format('embedded-opentype'),
+  url('../fonts/icomoon.ttf?2dciq3') format('truetype'),
+  url('../fonts/icomoon.woff?2dciq3') format('woff'),
+  url('../fonts/icomoon.svg?2dciq3#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,19 +24,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-welfare:before {
-  content: "\e901";
-}
 .icon-home:before {
-  content: "\e902";
-}
-.icon-target:before {
-  content: "\e903";
-}
-.icon-mine:before {
-  content: "\e904";
-  color: #f29200;
-}
-.icon-user—banner:before {
   content: "\e900";
+}
+.icon-stack:before {
+  content: "\e92e";
+}
+.icon-coin-yen:before {
+  content: "\e93e";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-eye:before {
+  content: "\e9ce";
+}
+.icon-eye-blocked:before {
+  content: "\e9d1";
 }

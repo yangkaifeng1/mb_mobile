@@ -1,14 +1,20 @@
 <template>
   <div class="mine">
     <div class="top">
-      <!--<i class="icon-user—banner"></i>-->
       <svg-banner>
-        <div class="unsign-con">
+        <div class="unsign-con" v-show="!user.userId">
           <div class="title">满宝金服</div>
           <blank25></blank25>
           <router-link to="/login">
             <div class="sign-btn">登录/注册</div>
           </router-link>
+        </div>
+        <div class="signed-con" v-show="user.userId">
+          <div class="topfloor">
+            <div class="text">账户总资产（元）</div>
+            <div class="number">{{user.money}}</div>
+          </div>
+          <div class="get">累计回报500.00元</div>
         </div>
       </svg-banner>
       <blank35></blank35>
@@ -40,8 +46,10 @@
       </div>
       <div class="item-box">
         <div class="item">
-          <div class="item-title">红包</div>
-          <div class="item-con">——张</div>
+          <router-link to="/mine/redpackets">
+            <div class="item-title">红包</div>
+            <div class="item-con">——张</div>
+          </router-link>
         </div>
         <div class="item">
           <div class="item-title">加息券</div>
@@ -141,6 +149,34 @@
           border-radius: 20px;
           width: 140px;
           text-align: center;
+        }
+      }
+      .signed-con{
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+        align-items: center;
+        color: @color-text-f;
+        .topfloor{
+          margin-top: 72px;
+          text-align: center;
+          .text{
+            font-size: @font-size-medium;
+            line-height: 20px;
+          }
+          .number{
+            font-size: @font-size-36;
+            line-height: 50px;
+          }
+        }
+        .get{
+          margin-top: 35px;
+          font-size: @font-size-medium-x;
+          line-height: 22px;
         }
       }
       .money-about{

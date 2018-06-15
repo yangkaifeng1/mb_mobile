@@ -18,6 +18,7 @@ import About from 'components/about/about'
 import companyDes from 'components/company-des/company-des'
 import Contact from 'components/contact/contact'
 import scoreLog from 'components/score-log/score-log'
+import redPackets from 'components/packets/red-packets'
 
 
 Vue.use(Router)
@@ -69,6 +70,10 @@ export default new Router({
         {
           path: 'moneylog',
           component: moneyLog
+        },
+        {
+          path: 'redpackets',
+          component: redPackets
         },
         {
           path: 'accountmsg',

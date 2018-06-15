@@ -11,7 +11,7 @@
     <router-link tag="div" class="tab-item" to="/target">
       <div class="tab-icon">
         <!--<img src="../../components/tabbar/image/touzi.png" alt="">-->
-        <i class="icon-target"></i>
+        <i class="icon-stack"></i>
       </div>
       <div class="tab-text">项目</div>
     </router-link>
@@ -19,7 +19,7 @@
     <router-link tag="div" class="tab-item" to="/welfare">
       <div class="tab-icon">
         <!--<img src="../../components/tabbar/image/fuli.png" alt="">-->
-        <i class="icon-welfare"></i>
+        <i class="icon-coin-yen"></i>
       </div>
       <div class="tab-text">福利</div>
     </router-link>
@@ -27,7 +27,7 @@
     <router-link tag="div" class="tab-item" to="/mine">
       <div class="tab-icon">
         <!--<img src="../../components/tabbar/image/my.png" alt="">-->
-        <i class="icon-mine"></i>
+        <i class="icon-user"></i>
       </div>
       <div class="tab-text">我的</div>
     </router-link>
