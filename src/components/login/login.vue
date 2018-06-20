@@ -118,7 +118,7 @@
     .con {
       position: absolute;
       width: 100%;
-      top: 44px;
+      top: 42px;
       bottom: 0;
       background: @color-text-f;
       .logo {

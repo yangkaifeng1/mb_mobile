@@ -1,5 +1,6 @@
 <template>
-  <div class="target-invest" @touchmove.prevent>
+  <transition name="slider-row">
+    <div class="target-invest" @touchmove.prevent>
     <mt-header fixed title="众泰质押【2018031501】">
       <router-link to="/target" slot="left">
         <mt-button icon="back"></mt-button>
@@ -76,6 +77,7 @@
     </scroll>
     <router-view></router-view>
   </div>
+  </transition>
 </template>
 
 <script>
@@ -125,13 +127,14 @@
       font-size: @font-size-large-l;
     }
     .con-box{
-      height: 100%;
+      position: absolute;
+      top: 42px;
+      bottom: 0;
+      width: 100%;
       overflow: hidden;
-      background: @color-background;
       .con{
         position: absolute;
         width: 100%;
-        top: 44px;
         .top{
           height: 250px;
           background: @color-text-f;

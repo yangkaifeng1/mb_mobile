@@ -1,5 +1,6 @@
 <template>
-  <div class="question-detail" @touchmove.prevent>
+  <transition name="slider-row">
+    <div class="question-detail" @touchmove.prevent>
     <mt-header fixed :title="title">
       <mt-button icon="back" slot="left" @click="back"></mt-button>
     </mt-header>
@@ -235,6 +236,7 @@
       </div>
     </scroll>
   </div>
+  </transition>
 </template>
 
 <script>

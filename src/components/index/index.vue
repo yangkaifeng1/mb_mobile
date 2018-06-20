@@ -1,5 +1,6 @@
 <template>
-  <div class="index">
+  <transition name="opa">
+    <div class="index">
     <div class="con">
       <mt-swipe :auto="4000">
         <mt-swipe-item>
@@ -66,6 +67,7 @@
     <blank10></blank10>
     <tabbar></tabbar>
   </div>
+  </transition>
 </template>
 
 <script>

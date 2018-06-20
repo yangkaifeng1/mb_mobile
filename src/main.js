@@ -7,10 +7,12 @@ import MintUI from 'mint-ui'
 import 'lib-flexible/flexible'
 import 'common/js/validate'
 import store from './store'
+import fastclick from 'fastclick'
 
 import 'mint-ui/lib/style.css'
 import './common/style/index.less'
 
+fastclick.attach(document.body)
 // import qs from 'qs'
 // /* 注入vue全局中，这样我们可以在组件内或者JS内通过使用this.$qs来使用qs库*/
 // Vue.use(qs)

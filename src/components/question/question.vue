@@ -1,5 +1,6 @@
 <template>
-  <div class="question">
+  <transition name="slider-row">
+    <div class="question">
     <mt-header fixed title="常见问题">
       <mt-button icon="back" slot="left" @click="back"></mt-button>
     </mt-header>
@@ -13,6 +14,7 @@
     </div>
     <router-view></router-view>
   </div>
+  </transition>
 </template>
 
 <script>
@@ -59,7 +61,7 @@
     .con {
       position: absolute;
       width: 100%;
-      top: 44px;
+      top: 42px;
       bottom: 0;
     }
   }

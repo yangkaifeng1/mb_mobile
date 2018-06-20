@@ -1,5 +1,5 @@
 <template>
-  <transition name="slider">
+  <transition name="slider-row">
     <div class="money-log" @scroll.prevent>
       <mt-header fixed title="资金记录">
         <router-link to="/mine" slot="left">
@@ -71,7 +71,7 @@
     .con{
       position: absolute;
       width: 100%;
-      top: 44px;
+      top: 42px;
       bottom: 0;
       .top{
         display: flex;
@@ -109,10 +109,10 @@
 
   }
 
-  .slider-enter-active, .slider-leave-active{
-    transition: all .3s
-  }
-  .slider-enter, .slider-leave-to{
-    transform: translate3d(100%, 0, 0);
-  }
+  /*.slider-enter-active, .slider-leave-active{*/
+    /*transition: all .3s*/
+  /*}*/
+  /*.slider-enter, .slider-leave-to{*/
+    /*transform: translate3d(100%, 0, 0);*/
+  /*}*/
 </style>

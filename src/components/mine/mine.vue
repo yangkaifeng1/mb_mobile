@@ -1,7 +1,8 @@
 <template>
-  <div class="mine">
+  <transition name="opa">
+    <div class="mine">
     <div class="top">
-      <svg-banner>
+      <div class="banner-bg">
         <div class="unsign-con" v-show="!user.userId">
           <div class="title">满宝金服</div>
           <blank25></blank25>
@@ -16,7 +17,7 @@
           </div>
           <div class="get">累计回报500.00元</div>
         </div>
-      </svg-banner>
+      </div>
       <blank35></blank35>
       <div class="money-about">
         <div class="des">可用余额（元）<span class="num">--</span></div>
@@ -91,6 +92,7 @@
     <tabbar></tabbar>
     <router-view></router-view>
   </div>
+  </transition>
 </template>
 
 <script>
@@ -126,57 +128,66 @@
     margin-bottom: 47px;
     .top{
       background: @color-text-f;
-      .unsign-con{
-        display: flex;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: @color-text-f;
-        .title{
-          font-size: @font-size-28;
-          line-height: 40px;
-        }
-        .sign-btn{
-          font-size: @font-size-large;
-          border: 1px solid @color-text-f;
+      .banner-bg{
+        height: 254px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+        .bg-image('../../components/mine/image/bg_img_zhanghu_normal');
+        position: relative;
+        .unsign-con{
+          display: flex;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
           color: @color-text-f;
-          line-height: 40px;
-          border-radius: 20px;
-          width: 140px;
-          text-align: center;
-        }
-      }
-      .signed-con{
-        display: flex;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        flex-direction: column;
-        align-items: center;
-        color: @color-text-f;
-        .topfloor{
-          margin-top: 72px;
-          text-align: center;
-          .text{
-            font-size: @font-size-medium;
-            line-height: 20px;
+          .title{
+            font-size: @font-size-28;
+            line-height: 40px;
           }
-          .number{
-            font-size: @font-size-36;
-            line-height: 50px;
+          .sign-btn{
+            font-size: @font-size-large;
+            border: 1px solid @color-text-f;
+            color: @color-text-f;
+            line-height: 40px;
+            border-radius: 20px;
+            width: 140px;
+            text-align: center;
           }
         }
-        .get{
-          margin-top: 35px;
-          font-size: @font-size-medium-x;
-          line-height: 22px;
+        .signed-con{
+          display: flex;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          flex-direction: column;
+          align-items: center;
+          color: @color-text-f;
+          .topfloor{
+            margin-top: 72px;
+            text-align: center;
+            .text{
+              font-size: @font-size-medium;
+              line-height: 20px;
+            }
+            .number{
+              font-size: @font-size-36;
+              line-height: 50px;
+            }
+          }
+          .get{
+            margin-top: 35px;
+            font-size: @font-size-medium-x;
+            line-height: 22px;
+          }
         }
       }
       .money-about{

@@ -1,5 +1,6 @@
 <template>
-  <div class="target">
+  <transition name="opa">
+    <div class="target">
     <div ref="targetpar">
       <mt-header title="项目" fixed></mt-header>
       <div class="target-con">
@@ -29,7 +30,7 @@
     </div>
     <router-view></router-view>
   </div>
-
+  </transition>
 </template>
 
 <script>

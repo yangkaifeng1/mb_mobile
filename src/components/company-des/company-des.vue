@@ -1,5 +1,6 @@
 <template>
-  <div class="company-des" @touchmove.prevent>
+  <transition name="slider-row">
+    <div class="company-des" @touchmove.prevent>
     <mt-header fixed title="公司简介">
       <mt-button icon="back" slot="left" @click="back"></mt-button>
     </mt-header>
@@ -26,6 +27,7 @@
       </div>
     </scroll>
   </div>
+  </transition>
 </template>
 
 <script>

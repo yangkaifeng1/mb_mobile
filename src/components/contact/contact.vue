@@ -1,5 +1,6 @@
 <template>
-  <div class="contact" @touchmove.prevent>
+  <transition name="slider-row">
+    <div class="contact" @touchmove.prevent>
     <mt-header fixed title="联系我们">
       <mt-button icon="back" slot="left" @click="back"></mt-button>
     </mt-header>
@@ -54,6 +55,7 @@
       </div>
     </scroll>
   </div>
+  </transition>
 </template>
 
 <script>
@@ -90,7 +92,7 @@
     .scroll-con{
       position: absolute;
       width: 100%;
-      top: 54px;
+      top: 52px;
       bottom: 0;
       .con {
         .item{

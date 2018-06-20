@@ -1,6 +1,5 @@
 <template>
-  <transition name="slider">
-
+  <transition name="slider-col">
     <div class="target-detail" @touchmove.prevent>
       <mt-header fixed title="众泰质押【2018031501】">
         <mt-button icon="back" slot="left" @click="back"></mt-button>
@@ -234,7 +233,6 @@
 
       </div>
     </div>
-
   </transition>
 </template>
 
@@ -286,7 +284,7 @@
     .con{
       position: absolute;
       width: 100%;
-      top: 44px;
+      top: 42px;
       bottom: 0;
       .mint-tab-container{
         position: absolute;

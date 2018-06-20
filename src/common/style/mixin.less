@@ -177,3 +177,29 @@ form .help {
   padding: 5px 0 0 10px;
 }
 
+//横向动画
+.slider-row-enter-active, .slider-row-leave-active{
+  transition: all .3s
+}
+
+.slider-row-enter, .slider-row-leave-to{
+  transform: translate3d(100%, 0, 0);
+}
+
+//纵向动画
+.slider-col-enter-active, .slider-col-leave-active{
+  transition: all .3s
+}
+
+.slider-col-enter, .slider-col-leave-to{
+  transform: translate3d(0, 100%, 0);
+}
+
+//透明动画
+.opa-enter-active{
+  transition: all .5s
+}
+
+.opa-enter{
+  opacity: 0.5;
+}

@@ -1,5 +1,6 @@
 <template>
-  <div class="welfare">
+  <transition name="opa">
+    <div class="welfare">
     <div class="banner">
       <div class="total-score">10000 <span>分</span></div>
       <div class="sign">签到领积分</div>
@@ -48,6 +49,7 @@
     <tabbar></tabbar>
     <router-view></router-view>
   </div>
+  </transition>
 </template>
 
 <script>

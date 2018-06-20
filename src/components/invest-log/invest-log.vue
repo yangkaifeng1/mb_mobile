@@ -1,6 +1,6 @@
 <template>
   <transition name="slider">
-    <div class="invest-log" @scroll.prevent>
+    <div class="invest-log" @touchmove.prevent>
       <mt-header fixed title="投资记录">
         <router-link to="/mine" slot="left">
           <mt-button icon="back"></mt-button>
@@ -99,7 +99,7 @@
     .con{
       position: absolute;
       width: 100%;
-      top: 44px;
+      top: 42px;
       bottom: 0;
       .top{
         display: flex;
