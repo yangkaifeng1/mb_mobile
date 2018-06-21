@@ -20,10 +20,9 @@ const Dictionary = {
     messages: {
       required: field => "请输入" + field
     },
-    attributes: {
-      name: "账号",
-      mobile: "手机号码",
-      userPwd: "登录密码",
+    attributes:{
+      mobile: '手机号码',
+      passWord: '登录密码'
     }
   }
 };

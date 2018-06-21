@@ -63,6 +63,16 @@
         <blank10></blank10>
         <blank5></blank5>
       </div>
+      <blank10></blank10>
+      <scroll class="swiper-box" :scrollX="scrollX">
+        <ul class="bot-swiper" >
+          <li class="bot-swiper-item"></li>
+          <li class="bot-swiper-item"></li>
+          <li class="bot-swiper-item"></li>
+        </ul>
+      </scroll>
+      <blank10></blank10>
+      <div class="warn-msg">理财有风险，投资需谨慎</div>
     </div>
     <blank10></blank10>
     <tabbar></tabbar>
@@ -75,6 +85,7 @@
   import ProgressCircle from 'base/progress-circle/progress-circle'
   import Blank10 from 'base/blank/blank10'
   import Blank5 from 'base/blank/blank5'
+  import Scroll from 'base/scroll/scroll'
   import Tabbar from 'components/tabbar/tabbar'
   import { getIndex } from 'api/index'
   import { ERR_OK } from 'api/config'
@@ -82,7 +93,8 @@
   export default{
     data () {
       return {
-        indexData: []
+        indexData: [],
+        scrollX: true
       }
     },
     created () {
@@ -103,13 +115,16 @@
       ProgressCircle,
       Blank10,
       Blank5,
-      Tabbar
+      Tabbar,
+      Scroll
     }
   }
 </script>
 
 <style lang="less" scoped>
   @import "~common/style/variable.less";
+  @import "~common/style/mixin.less";
+
   .index{
     .con{
       margin-bottom: 47px;
@@ -203,6 +218,30 @@
           }
         }
 
+      }
+      .swiper-box{
+        width: 100%;
+        overflow: hidden;
+        height: 89px;
+        .bot-swiper{
+          width: 240%;
+          height: 89px;
+          display: flex;
+          .bot-swiper-item{
+            height: 89px;
+            flex: 1;
+            .bg-image('../../components/index/image/content_img_weixingongzhonghao_normal');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0 10px;
+          }
+        }
+      }
+      .warn-msg{
+        color: @color-background-d;
+        font-size: @font-size-small;
+        text-align: center;
       }
     }
 
