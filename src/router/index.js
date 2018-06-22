@@ -19,6 +19,7 @@ import companyDes from 'components/company-des/company-des'
 import Contact from 'components/contact/contact'
 import scoreLog from 'components/score-log/score-log'
 import redPackets from 'components/packets/red-packets'
+import redPacketsDetail from 'components/red-packets-detail/red-packets-detail'
 
 
 Vue.use(Router)
@@ -56,6 +57,10 @@ export default new Router({
         {
           path: 'scorelog',
           component: scoreLog
+        },
+        {
+          path: ':id',
+          component: redPacketsDetail
         }
       ]
     },

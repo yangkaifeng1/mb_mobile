@@ -1,5 +1,5 @@
 <template>
-  <transition name="slider">
+  <transition name="slider-row">
     <div class="money-log" @scroll.prevent>
       <mt-header fixed title="积分明细">
         <mt-button icon="back" slot="left" @click="back"></mt-button>

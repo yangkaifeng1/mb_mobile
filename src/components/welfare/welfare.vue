@@ -12,38 +12,13 @@
     <blank10></blank10>
     <div class="packets-con">
       <div class="title">积分兑换</div>
-      <div class="packets-box">
-        <div class="packets-item">
+      <ul class="packets-box">
+        <li class="packets-item" v-for="(item, index) in 6" @click="toDetail(index)">
           <img src="../../components/welfare/image/content_img_50hongbao_normal.png" alt="">
           <blank10></blank10>
           <div class="score">5000</div>
-        </div>
-        <div class="packets-item">
-          <img src="../../components/welfare/image/content_img_50hongbao_normal.png" alt="">
-          <blank10></blank10>
-          <div class="score">5000</div>
-        </div>
-        <div class="packets-item">
-          <img src="../../components/welfare/image/content_img_50hongbao_normal.png" alt="">
-          <blank10></blank10>
-          <div class="score">5000</div>
-        </div>
-        <div class="packets-item">
-          <img src="../../components/welfare/image/content_img_50hongbao_normal.png" alt="">
-          <blank10></blank10>
-          <div class="score">5000</div>
-        </div>
-        <div class="packets-item">
-          <img src="../../components/welfare/image/content_img_50hongbao_normal.png" alt="">
-          <blank10></blank10>
-          <div class="score">5000</div>
-        </div>
-        <div class="packets-item">
-          <img src="../../components/welfare/image/content_img_50hongbao_normal.png" alt="">
-          <blank10></blank10>
-          <div class="score">5000</div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
     <blank10></blank10>
     <tabbar></tabbar>
@@ -64,6 +39,11 @@
             this.$router.push({
               path: '/welfare/scorelog'
             })
+        },
+        toDetail (index) {
+          this.$router.push({
+            path: `/welfare/${index}`
+          })
         }
       },
       components: {

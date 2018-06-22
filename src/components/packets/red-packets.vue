@@ -1,23 +1,23 @@
 <template>
   <transition name="slider-row">
     <div class="red-packets" @touchmove.prevent>
-    <mt-header fixed title="我的红包">
-      <mt-button icon="back" slot="left" @click="back"></mt-button>
-    </mt-header>
-    <div class="con">
-      <mt-navbar ref="navbar">
-        <mt-tab-item id="1">待满标</mt-tab-item>
-        <mt-tab-item id="2">待回款</mt-tab-item>
-        <mt-tab-item id="3">已结束</mt-tab-item>
-      </mt-navbar>
-      <scroll class="packets-box">
-        <ul>
-          <li v-for="item in 10">
-            <packets-item></packets-item>
-          </li>
-        </ul>
-      </scroll>
-    </div>
+      <mt-header fixed title="我的红包">
+        <mt-button icon="back" slot="left" @click="back"></mt-button>
+      </mt-header>
+      <div class="con">
+        <mt-navbar ref="navbar">
+          <mt-tab-item id="1">待满标</mt-tab-item>
+          <mt-tab-item id="2">待回款</mt-tab-item>
+          <mt-tab-item id="3">已结束</mt-tab-item>
+        </mt-navbar>
+        <scroll class="packets-box">
+          <ul>
+            <li v-for="item in 10">
+              <packets-item></packets-item>
+            </li>
+          </ul>
+        </scroll>
+      </div>
   </div>
   </transition>
 </template>
